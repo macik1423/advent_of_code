@@ -5,7 +5,7 @@ import java.lang.Exception
 import java.util.*
 
 fun main() {
-    val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/day3/input.txt")
+    val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/_2023/day3/input.txt")
     val rows = file.size
     val columns = file[0].length
     val array = Array(rows) { i -> CharArray(columns) { j -> file[i][j] } }

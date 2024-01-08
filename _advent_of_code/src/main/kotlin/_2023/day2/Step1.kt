@@ -3,7 +3,7 @@ package day2
 import _2023.day1.readFileAsLinesUsingBufferedReader
 
 fun main() {
-    val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/day2/input.txt")
+    val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/_2023/day2/input.txt")
     val splitBy = file.map {it.split(" Game")}
     val replaceBy = splitBy.map { it -> it.map { Regex("Game \\d+: ").replace(it, "")} }
     println("replaceBy: $replaceBy")
