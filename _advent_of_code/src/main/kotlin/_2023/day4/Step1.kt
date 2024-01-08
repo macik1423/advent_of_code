@@ -1,6 +1,6 @@
 package day4
 
-import day1.readFileAsLinesUsingBufferedReader
+import _2023.day1.readFileAsLinesUsingBufferedReader
 import kotlin.math.pow
 
 fun main() {

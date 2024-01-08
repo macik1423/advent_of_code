@@ -1,6 +1,6 @@
 package day2
 
-import day1.readFileAsLinesUsingBufferedReader
+import _2023.day1.readFileAsLinesUsingBufferedReader
 
 fun main() {
     val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/day2/input.txt")

@@ -1,6 +1,6 @@
 package day3
 
-import day1.readFileAsLinesUsingBufferedReader
+import _2023.day1.readFileAsLinesUsingBufferedReader
 import java.lang.Exception
 import java.util.*
 

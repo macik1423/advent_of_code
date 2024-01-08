@@ -1,6 +1,6 @@
 package day5
 
-import day1.readFileAsLinesUsingBufferedReader
+import _2023.day1.readFileAsLinesUsingBufferedReader
 import kotlin.math.abs
 
 fun main() {
@@ -28,46 +28,30 @@ fun main() {
     val humidityToLocation = file.subList(indexHumidityToLocation + 1, file.size).map { it.split(" ") }.map { it -> it.map { it.toLong() } }
 
     val converter = arrayOf(
-        humidityToLocation,
-        temperatureToHumidity,
-        lightToTemperature,
-        waterToLight,
-        fertilizerToWater,
-        soilToFertilizer,
         seedToSoil,
+        soilToFertilizer,
+        fertilizerToWater,
+        waterToLight,
+        lightToTemperature,
+        temperatureToHumidity,
+        humidityToLocation
     )
 
-    val seeds = file[0]
-        .split("seeds: ")[1]
-        .split(" ")
-        .map { it.toLong() }
-        .zipWithNext()
-        .filterIndexed{ index, _ -> index % 2 == 0 }
+    val seeds = file[0].split("seeds: ")[1].split(" ").map { it.toLong() }
 
-    var locationIterator = 0L
-    while (locationIterator < Long.MAX_VALUE) {
-        val toConvert = locationIterator
-        val fold = converter.fold(toConvert) { acc, it ->
-            getConv(acc, it)
-        }
-        if (areSeedsContains(seeds, fold)) {
-            println("$locationIterator $fold")
-            return
-        }
-        locationIterator++
-    }
+    val result = converter.fold(seeds) { acc, i -> getConverted(acc, i) }
+    println(result.min())
 }
 
-private fun areSeedsContains(seeds: List<Pair<Long, Long>>, number: Long): Boolean {
-    return seeds.any { it.first + it.second >= number && number >= it.first}
-}
-
-private fun getConv(number: Long, data: List<List<Long>>): Long {
-    val indexOfFirst = data.indexOfFirst { number >= it[0] && number <= (it[0] + it[2]) }
-    return when {
-        indexOfFirst != -1 -> data[indexOfFirst][1] + abs(number - data[indexOfFirst][0])
-        else -> number
+private fun getConverted(seeds: List<Long>, data: List<List<Long>>): List<Long> {
+    val map = seeds.map { seed ->
+        val indexOfFirst = data.indexOfFirst { seed >= it[1] && seed <= (it[1] + it[2]) }
+        when {
+            indexOfFirst != -1 -> abs(data[indexOfFirst][1] - seed) + data[indexOfFirst][0]
+            else -> seed
+        }
     }
+    return map
 }
 
 private fun getData(
@@ -78,3 +62,4 @@ private fun getData(
         index + 1,
         index + file.subList(index + 1, file.size).indexOfFirst { it == "" } + 1)
         .map{it.split(" ")}.map { it -> it.map { it.toLong() } }
+

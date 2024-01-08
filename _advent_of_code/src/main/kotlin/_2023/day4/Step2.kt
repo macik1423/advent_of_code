@@ -1,6 +1,6 @@
 package day4
 
-import day1.readFileAsLinesUsingBufferedReader
+import _2023.day1.readFileAsLinesUsingBufferedReader
 
 //1 -> 4 matching 2 3 4 5
 //    2 -> 2 matching 3 4
