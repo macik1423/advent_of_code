@@ -15,25 +15,18 @@ fun main() {
         when {
             step.first == "R" && acc.direction is North ->
                 getState(acc, step, East())
-
             step.first == "R" && acc.direction is South ->
                 getState(acc, step, West())
-
             step.first == "R" && acc.direction is West ->
                 getState(acc, step, North())
-
             step.first == "R" && acc.direction is East ->
                 getState(acc, step, South())
-
             step.first == "L" && acc.direction is North ->
                 getState(acc, step, West())
-
             step.first == "L" && acc.direction is South ->
                 getState(acc, step, East())
-
             step.first == "L" && acc.direction is East ->
                 getState(acc, step, North())
-
             step.first == "L" && acc.direction is West ->
                 getState(acc, step, South())
 

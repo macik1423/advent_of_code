@@ -54,76 +54,21 @@ fun main() {
     val endingPoint = directions.fold(State()) { acc, step ->
         when {
             step.first == "R" && acc.direction is North ->
-                State(
-                    Pair(
-                        calcX(acc, step, East()),
-                        calcY(acc, step, East())
-                    ),
-                    East()
-                )
-
+                getState(acc, step, East())
             step.first == "R" && acc.direction is South ->
-                State(
-                    Pair(
-                        calcX(acc, step, West()),
-                        calcY(acc, step, West())
-                    ),
-                    West()
-                )
-
+                getState(acc, step, West())
             step.first == "R" && acc.direction is West ->
-                State(
-                    Pair(
-                        calcX(acc, step, North()),
-                        calcY(acc, step, North())
-                    ),
-                    North()
-                )
-
+                getState(acc, step, North())
             step.first == "R" && acc.direction is East ->
-                State(
-                    Pair(
-                        calcX(acc, step, South()),
-                        calcY(acc, step, South())
-                    ),
-                    South()
-                )
-
+                getState(acc, step, South())
             step.first == "L" && acc.direction is North ->
-                State(
-                    Pair(
-                        calcX(acc, step, West()),
-                        calcY(acc, step, West())
-                    ),
-                    West()
-                )
-
+                getState(acc, step, West())
             step.first == "L" && acc.direction is South ->
-                State(
-                    Pair(
-                        calcX(acc, step, East()),
-                        calcY(acc, step, East())
-                    ),
-                    East()
-                )
-
+                getState(acc, step, East())
             step.first == "L" && acc.direction is East ->
-                State(
-                    Pair(
-                        calcX(acc, step, North()),
-                        calcY(acc, step, North())
-                    ),
-                    North()
-                )
-
+                getState(acc, step, North())
             step.first == "L" && acc.direction is West ->
-                State(
-                    Pair(
-                        calcX(acc, step, South()),
-                        calcY(acc, step, South())
-                    ),
-                    South()
-                )
+                getState(acc, step, South())
 
             else -> State()
         }
@@ -131,6 +76,14 @@ fun main() {
     val result = abs(endingPoint.cord.first) + abs(endingPoint.cord.second)
     println(result)
 }
+
+private fun getState(acc: State, step: Pair<String, Int>, direction: Direction) = State(
+    Pair(
+        calcX(acc, step, direction),
+        calcY(acc, step, direction)
+    ),
+    direction
+)
 
 private fun calcY(
     acc: State,
