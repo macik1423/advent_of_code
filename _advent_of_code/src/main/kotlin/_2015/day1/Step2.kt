@@ -1,6 +1,6 @@
 package _2015.day1
 
-fun main(args: Array<String>) {
+fun main() {
     val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/_2015/day1/input.txt")
 
     val result =
