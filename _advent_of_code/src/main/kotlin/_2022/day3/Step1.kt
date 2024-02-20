@@ -1,8 +1,6 @@
 package _2022.day3
 
 import _2015.day1.readFileAsLinesUsingBufferedReader
-
-
 fun main() {
     val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/_2022/day3/input.txt")
     val map = file.map { Pair(it.substring(0, it.length / 2), it.substring(it.length / 2, it.length)) }
