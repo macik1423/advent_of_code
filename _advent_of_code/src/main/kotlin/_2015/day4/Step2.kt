@@ -1,7 +1,6 @@
 package _2015.day4
 
-
-fun main(args: Array<String>) {
+fun main() {
     val puzzleInput = "yzbqklnj"
 
     val findNumber = findNumber2(puzzleInput)

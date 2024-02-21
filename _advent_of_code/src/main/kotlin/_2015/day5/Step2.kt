@@ -2,7 +2,7 @@ package _2015.day5
 
 import _2015.day1.readFileAsLinesUsingBufferedReader
 
-fun main(args: Array<String>) {
+fun main() {
     val file = readFileAsLinesUsingBufferedReader("src/main/kotlin/_2015/day5/input.txt")
 
     val result = file.count { isNiceString2(it) }

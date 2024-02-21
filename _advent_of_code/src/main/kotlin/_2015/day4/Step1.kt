@@ -3,7 +3,7 @@ package _2015.day4
 import java.math.BigInteger
 import java.security.MessageDigest
 
-fun main(args: Array<String>) {
+fun main() {
     val puzzleInput = "yzbqklnj"
 
     val findNumber = findNumber(puzzleInput)
